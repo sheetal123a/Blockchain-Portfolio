@@ -27,9 +27,9 @@ const Hero = ({state}) => {
         <section className="hero">
         <div className="container">
             <div className="hero-text">
-                <p><span>sheetal </span>
-                    is a Full-Stack Blockchain Developer From India.</p>
-                <h1>I develop decentralised apps in web3 space.</h1>
+                <p><span>Sheetal </span>
+                    is a B.tech final year student From India.</p>
+                <h1>I am learning Blockchin development</h1>
                 <h3>{description}</h3>
                 {/*  =========popup bootstrap==========  */}
 
@@ -37,7 +37,7 @@ const Hero = ({state}) => {
                     <ModalBody>
                             <Row className="text-align">
                                 <label htmlFor="" toggle={() => setModal(!modal)}>
-                                    Mail Id - sheetalag15@gmail.com
+                                    Mail Id - sheetalag15@gamil.com
                                 </label>
 
                             </Row>
