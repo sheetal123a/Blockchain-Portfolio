@@ -12,7 +12,7 @@ const Wallet =({saveState})=>{
         await window.ethereum.request({method:'eth_requestAccounts'});
         const contract = new web3.eth.Contract(
             ABI,
-            "0xD76852B784ec1Ec11Db89dABeE7a0DAC2FDEB466"
+            "0xeD6632D93492fe050c9eD376b3d49Da47ca392E1"
         );
          setConnected(false);
          saveState({web3:web3,contract:contract});
@@ -24,7 +24,7 @@ const Wallet =({saveState})=>{
       return<>
       <div className="header">
       {isAndroid  && <button className="connectBTN">
-         <a href="https://metamask.app.link/dapp/sriche.netlify.app/">Click For Mobile</a>
+         <a href="https://metamask.app.link/dapp/srich.netify.app/">Click For Mobile</a>
         </button>  } 
        <button className="connectBTN" onClick={init} disabled={!connected}> {connected? "Connect Metamask":"Connected"}</button>
       </div>
