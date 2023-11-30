@@ -5,6 +5,7 @@ import { SlCalender } from "react-icons/sl"
 
 const Experience = ({state}) => {
     const [education,setEducation]=useState("");
+    const [experience,setExperience]=useState("");
 
     useEffect(()=>{
         const {contract}=state;
@@ -13,6 +14,15 @@ const Experience = ({state}) => {
             setEducation(education);
         }
         contract && educationDetails();
+    },[state])
+
+    useEffect(()=>{
+        const {contract}=state;
+        const expereinceDetails=async()=>{
+            const experience = await contract.methods.allExperienceDetails().call();
+            setExperience(experience);
+        }
+        contract && expereinceDetails();
     },[state])
     return (
         <section className="exp-section">
@@ -41,38 +51,21 @@ const Experience = ({state}) => {
                 {/* experience */}
                 <div className="education">
                     <h1 className="edu-title">Experience</h1>
-                    <div className="edu-card">
+                    {experience!=="" && experience.map((exp)=>{
+                        return (   
+                        <div className="edu-card">
                         <p className="card-text1">
-                            <SlCalender className='icon' /> March 2013 - Present
+                            <SlCalender className='icon' /> {exp.date}
                         </p>
-                        <h3 className="card-text2">Blockchain Developer Intern</h3>
-                        <p className="card-text3">learned this this and that.learned this this and that.learned this this and that.learned this this and that.</p>
+                        <h3 className="card-text2">{exp.post}</h3>
+                        <p className="card-text3">{exp.knowledgeAcquired}</p>
                         <p className="card-text4">
-                           Hehe
+                        {exp._companyName}
                         </p>
-                    </div>
-                    {/* card2 */}
-                    <div className="edu-card">
-                        <p className="card-text1">
-                            <SlCalender className='icon' /> March 2013 - Present
-                        </p>
-                        <h3 className="card-text2">Blockchain Developer Intern</h3>
-                        <p className="card-text3">learned this this and that.learned this this and that.learned this this and that.learned this this and that.</p>
-                        <p className="card-text4">
-                            Hehe
-                        </p>
-                    </div>
-                    {/* card3 */}
-                    <div className="edu-card">
-                        <p className="card-text1">
-                            <SlCalender className='icon' /> March 2013 - Present
-                        </p>
-                        <h3 className="card-text2">Blockchain Developer Intern</h3>
-                        <p className="card-text3">learned this this and that.learned this this and that.learned this this and that.learned this this and that.</p>
-                        <p className="card-text4">
-                            Hehe
-                        </p>
-                    </div>
+                    </div>)
+                    })}
+                 
+                   
                 </div>
             </div>
         </section>
