@@ -69,3 +69,4 @@ const Projects = ({state}) => {
 }
 
 export default Projects
+
